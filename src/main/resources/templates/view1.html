@@ -16,7 +16,7 @@
         <p>You have to choose to register for the following event:</p>
         <br>
 
-        <form method="POST" th:action="@{/employees/saveEmployee}" th:object="${employee}">
+        <form method="POST" th:action="@{/registration/register}" th:object="${event}">
             <div class="mb-3">
                 <label for="fullName" class="form-label">Full Name</label>
                 <input type="text" min="5" max="25" class="form-control" name="fullName" th:field="*{fullName}" />

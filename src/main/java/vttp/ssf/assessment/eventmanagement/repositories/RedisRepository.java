@@ -1,6 +1,9 @@
 package vttp.ssf.assessment.eventmanagement.repositories;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -36,7 +39,25 @@ public class RedisRepository {
 
 	// TODO: Task 4
 
-	// public Event getEvent(Integer index) {
-		
-	// }
+	public List<Event> getAllEvents() {
+		List<String> keys = (List<String>) redisTemplate.keys("event:*");
+		System.out.println(keys);
+		return keys != null ?
+			keys
+			.stream()
+			.map(key -> (Event) redisTemplate.opsForValue().get(key)).collect(Collectors.toList()) : null;
+	}
+
+	public Event getEvent(Integer index) {
+		String keyPattern = "event:*";
+        List<String> keys = (List<String>) redisTemplate.keys(keyPattern);
+		System.out.println(keys);
+        if (keys != null && index >= 0 && index < keys.size()) {
+            String selectedKey = keys.get(index);
+            return (Event) redisTemplate.opsForValue().get(selectedKey);
+        }
+
+        return null;
+
+	}
 }

@@ -36,5 +36,6 @@ public class EventmanagementApplication implements CommandLineRunner {
 
 		redisRepo.getNumberOfEvents();
 
+		// redisRepo.getAllEvents();
     }
 	}

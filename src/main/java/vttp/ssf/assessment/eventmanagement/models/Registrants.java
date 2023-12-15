@@ -9,6 +9,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import vttp.ssf.assessment.eventmanagement.validation.Gender;
 
 public class Registrants {
     
@@ -34,6 +35,7 @@ public class Registrants {
     @Max(value = 3, message = "Maximum of 3 tickets allowed.")
     private Integer tickets;
 
+    @Gender(message="Gender must be M or F")
     private String gender;
 
     public String getFullName() {
