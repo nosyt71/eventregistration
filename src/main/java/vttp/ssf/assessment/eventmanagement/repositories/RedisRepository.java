@@ -52,12 +52,8 @@ public class RedisRepository {
 		String keyPattern = "event:*";
         List<String> keys = (List<String>) redisTemplate.keys(keyPattern);
 		System.out.println(keys);
-        if (keys != null && index >= 0 && index < keys.size()) {
-            String selectedKey = keys.get(index);
-            return (Event) redisTemplate.opsForValue().get(selectedKey);
+		return keys;
         }
 
-        return null;
-
-	}
+	
 }

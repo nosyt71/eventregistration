@@ -8,6 +8,7 @@ COPY mvnw .
 COPY pom.xml .
 
 # compile the Java application
+RUN chmod +x mvnw
 RUN ./mvnw package -Dmvn.test.skip=true
 
 FROM openjdk:21-bookworm 
