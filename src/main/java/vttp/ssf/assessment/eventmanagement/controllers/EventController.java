@@ -12,6 +12,7 @@ public class EventController {
 	//TODO: Task 5
 	@GetMapping
 	public String displayEvents(Model model) {
+		
 		return "view0";
 	}
 

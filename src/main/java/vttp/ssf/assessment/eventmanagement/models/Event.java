@@ -48,5 +48,11 @@ public class Event {
         this.eventDate = eventDate;
         this.participants = participants;
     }
+    @Override
+    public String toString() {
+        return "Event [eventId=" + eventId + ", eventName=" + eventName + ", eventSize=" + eventSize + ", eventDate="
+                + eventDate + ", participants=" + participants + "]";
+    }
+    
     
 }
